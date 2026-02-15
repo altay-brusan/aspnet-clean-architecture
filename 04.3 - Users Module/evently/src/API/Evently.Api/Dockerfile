@@ -8,11 +8,28 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Directory.Build.props", "."]
+
+# API
 COPY ["src/API/Evently.Api/Evently.Api.csproj", "src/API/Evently.Api/"]
-COPY ["src/Modules/Events/Evently.Modules.Events.Infrastructure/Evently.Modules.Events.Infrastructure.csproj", "src/Modules/Events/Evently.Modules.Events.Infrastructure/"]
-COPY ["src/Modules/Events/Evently.Modules.Events.Application/Evently.Modules.Events.Application.csproj", "src/Modules/Events/Evently.Modules.Events.Application/"]
+
+# Common
+COPY ["src/Common/Evently.Common.Domain/Evently.Common.Domain.csproj", "src/Common/Evently.Common.Domain/"]
+COPY ["src/Common/Evently.Common.Application/Evently.Common.Application.csproj", "src/Common/Evently.Common.Application/"]
+COPY ["src/Common/Evently.Common.Infrastructure/Evently.Common.Infrastructure.csproj", "src/Common/Evently.Common.Infrastructure/"]
+COPY ["src/Common/Evently.Common.Presentation/Evently.Common.Presentation.csproj", "src/Common/Evently.Common.Presentation/"]
+
+# Events Module
 COPY ["src/Modules/Events/Evently.Modules.Events.Domain/Evently.Modules.Events.Domain.csproj", "src/Modules/Events/Evently.Modules.Events.Domain/"]
+COPY ["src/Modules/Events/Evently.Modules.Events.Application/Evently.Modules.Events.Application.csproj", "src/Modules/Events/Evently.Modules.Events.Application/"]
+COPY ["src/Modules/Events/Evently.Modules.Events.Infrastructure/Evently.Modules.Events.Infrastructure.csproj", "src/Modules/Events/Evently.Modules.Events.Infrastructure/"]
 COPY ["src/Modules/Events/Evently.Modules.Events.Presentation/Evently.Modules.Events.Presentation.csproj", "src/Modules/Events/Evently.Modules.Events.Presentation/"]
+
+# Users Module
+COPY ["src/Modules/Users/Evently.Modules.Users.Domain/Evently.Modules.Users.Domain.csproj", "src/Modules/Users/Evently.Modules.Users.Domain/"]
+COPY ["src/Modules/Users/Evently.Modules.Users.Application/Evently.Modules.Users.Application.csproj", "src/Modules/Users/Evently.Modules.Users.Application/"]
+COPY ["src/Modules/Users/Evently.Modules.Users.Infrastructure/Evently.Modules.Users.Infrastructure.csproj", "src/Modules/Users/Evently.Modules.Users.Infrastructure/"]
+COPY ["src/Modules/Users/Evently.Modules.Users.Presentation/Evently.Modules.Users.Presentation.csproj", "src/Modules/Users/Evently.Modules.Users.Presentation/"]
+
 RUN dotnet restore "./src/API/Evently.Api/Evently.Api.csproj"
 COPY . .
 WORKDIR "/src/src/API/Evently.Api"

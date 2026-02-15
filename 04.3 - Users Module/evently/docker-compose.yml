@@ -10,6 +10,13 @@ services:
     ports:
       - 5000:8080
       - 5001:8081
+    depends_on:
+      evently.database:
+        condition: service_started
+      evently.redis:
+        condition: service_started
+      evently.seq:
+        condition: service_started
 
   evently.database:
     image: postgres:latest
@@ -19,7 +26,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./.containers/db:/var/lib/postgresql/data
+      - evently-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
@@ -28,6 +35,7 @@ services:
     container_name: Evently.Seq
     environment:
       - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=Admin123!
     ports:
       - 5341:5341
       - 8081:80
@@ -38,3 +46,6 @@ services:
     restart: always
     ports:
       - 6379:6379
+
+volumes:
+  evently-db:

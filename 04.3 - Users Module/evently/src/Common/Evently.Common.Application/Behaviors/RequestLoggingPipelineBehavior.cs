@@ -5,6 +5,7 @@ using Serilog.Context;
 
 namespace Evently.Common.Application.Behaviors;
 
+#pragma warning disable CA1873
 internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>(
     ILogger<RequestLoggingPipelineBehavior<TRequest, TResponse>> logger)
     : IPipelineBehavior<TRequest, TResponse>
