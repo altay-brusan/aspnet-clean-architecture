@@ -21,19 +21,13 @@ internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>(
 
         using (LogContext.PushProperty("Module", moduleName))
         {
-            if (logger.IsEnabled(LogLevel.Information))
-            {
-                logger.LogInformation("Processing request {RequestName}", requestName);
-            }
+            logger.LogInformation("Processing request {RequestName}", requestName);
 
             TResponse result = await next();
 
             if (result.IsSuccess)
             {
-                if (logger.IsEnabled(LogLevel.Information))
-                {
-                    logger.LogInformation("Completed request {RequestName}", requestName);
-                }
+                logger.LogInformation("Completed request {RequestName}", requestName);
             }
             else
             {
