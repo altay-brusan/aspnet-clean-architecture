@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
   evently.api:
     image: ${DOCKER_REGISTRY-}eventlyapi
@@ -8,10 +10,6 @@ services:
     ports:
       - 5000:8080
       - 5001:8081
-    depends_on:
-      - evently.database
-      - evently.redis
-      - evently.seq
 
   evently.database:
     image: postgres:latest
@@ -21,7 +19,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
-      - evently-db:/var/lib/postgresql/data
+      - ./.containers/db:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
@@ -40,6 +38,3 @@ services:
     restart: always
     ports:
       - 6379:6379
-
-volumes:
-  evently-db:
