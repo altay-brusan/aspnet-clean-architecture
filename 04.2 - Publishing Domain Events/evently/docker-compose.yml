@@ -1,0 +1,61 @@
+services:
+  evently.api:
+    image: ${DOCKER_REGISTRY-}eventlyapi
+    container_name: Evently.Api
+    build:
+      context: .
+      dockerfile: src/API/Evently.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Database=Host=evently.database;Port=5432;Database=evently;Username=postgres;Password=postgres;Include Error Detail=true
+      - ConnectionStrings__Cache=evently.redis:6379,abortConnect=false
+    ports:
+      - 5000:8080
+      - 5001:8081
+    depends_on:
+      evently.database:
+        condition: service_healthy
+      evently.redis:
+        condition: service_healthy
+
+  evently.database:
+    image: postgres:latest
+    container_name: Evently.Database
+    environment:
+      - POSTGRES_DB=evently
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - evently-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  evently.seq:
+    image: datalust/seq:latest
+    container_name: Evently.Seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_NOAUTHENTICATION=true
+    ports:
+      - 5341:5341
+      - 8081:80
+
+  evently.redis:
+    image: redis:latest
+    container_name: Evently.Redis
+    restart: always
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  evently-db:
