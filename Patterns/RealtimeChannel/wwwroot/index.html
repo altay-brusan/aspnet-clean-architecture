@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BoundedChannel · IoT Telemetry Dashboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0c10; --surface: #111420; --surface2: #181c2c; --border: #1f2540;
+      --accent: #00e5ff; --accent2: #7b5cf5; --warn: #ff6b35; --ok: #00e676;
+      --text: #c8cfe8; --dim: #5a6380;
+      --mono: 'JetBrains Mono','Fira Code',monospace;
+      --sans: 'DM Sans',system-ui,sans-serif; --r: 6px;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+    html,body { height:100%; background:var(--bg); color:var(--text); font-family:var(--sans); font-size:13px; line-height:1.6; overflow:hidden; }
+    .shell { display:grid; grid-template-rows:52px 1fr; grid-template-columns:240px 1fr 300px; height:100vh; }
+    header { grid-column:1/-1; display:flex; align-items:center; gap:14px; padding:0 24px; background:var(--surface); border-bottom:1px solid var(--border); }
+    .logo { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+    .hsep { flex:1; }
+    .conn-badge { display:flex; align-items:center; gap:7px; font-family:var(--mono); font-size:10px; letter-spacing:.08em; color:var(--dim); }
+    .conn-dot { width:8px; height:8px; border-radius:50%; background:var(--dim); transition:background .4s; }
+    .conn-dot.connected { background:var(--ok); animation:pulse 2s infinite; }
+    .conn-dot.error { background:var(--warn); }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,230,118,.5)}50%{box-shadow:0 0 0 5px rgba(0,230,118,0)} }
+    .sidebar-left { background:var(--surface); border-right:1px solid var(--border); overflow-y:auto; padding:16px 0; }
+    .slabel { font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--dim); padding:0 16px 8px; }
+    .device-list { display:flex; flex-direction:column; }
+    .device-row { display:flex; align-items:center; gap:10px; padding:8px 16px; cursor:pointer; border-left:3px solid transparent; transition:background .15s,border-color .15s; }
+    .device-row:hover { background:var(--surface2); }
+    .device-row.active { border-left-color:var(--accent); background:rgba(0,229,255,.05); }
+    .device-row.active .did { color:var(--accent); }
+    .dind { width:7px; height:7px; border-radius:50%; background:var(--dim); transition:background .3s; flex-shrink:0; }
+    .dind.alert  { background:var(--warn); animation:pulse 1.2s infinite; }
+    .dind.active { background:var(--ok); }
+    .did   { font-family:var(--mono); font-size:11px; font-weight:600; flex:1; }
+    .dcnt  { font-family:var(--mono); font-size:10px; color:var(--dim); }
+    .main-panel { display:grid; grid-template-rows:auto 1fr; overflow:hidden; padding:20px; gap:14px; }
+    .stats-strip { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+    .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:12px 14px; position:relative; overflow:hidden; }
+    .stat-card::before { content:''; position:absolute; inset:0 0 auto; height:2px; background:var(--accent); }
+    .stat-card.c-ok::before   { background:var(--ok); }
+    .stat-card.c-warn::before { background:var(--warn); }
+    .stat-card.c-v2::before   { background:var(--accent2); }
+    .stat-card.c-gd::before   { background:#f5c542; }
+    .slbl { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); margin-bottom:4px; }
+    .sval { font-family:var(--mono); font-size:20px; font-weight:600; color:var(--text); line-height:1; }
+    .sunit{ font-family:var(--mono); font-size:10px; color:var(--dim); margin-top:2px; }
+    .bbar-wrap { margin-top:8px; height:3px; background:var(--border); border-radius:2px; overflow:hidden; }
+    .bbar { height:100%; background:var(--accent); border-radius:2px; transition:width .4s ease,background .4s; width:0%; }
+    .bbar.high { background:var(--warn); }
+    .feed-wrap { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; display:flex; flex-direction:column; }
+    .feed-header { display:flex; align-items:center; padding:10px 16px; border-bottom:1px solid var(--border); gap:10px; }
+    .ftitle { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); flex:1; }
+    .batch-flash { font-family:var(--mono); font-size:10px; color:var(--dim); display:flex; align-items:center; gap:6px; }
+    .batch-pill { background:rgba(0,229,255,.12); color:var(--accent); border-radius:3px; padding:1px 6px; font-size:9px; transition:background .15s; }
+    .batch-pill.flash { background:rgba(0,229,255,.35); }
+    .pause-btn { font-family:var(--mono); font-size:10px; background:transparent; border:1px solid var(--border); border-radius:4px; color:var(--dim); padding:3px 10px; cursor:pointer; transition:border-color .15s,color .15s; }
+    .pause-btn:hover  { border-color:var(--accent); color:var(--accent); }
+    .pause-btn.paused { border-color:var(--warn);   color:var(--warn); }
+    #reading-feed { flex:1; overflow-y:auto; font-family:var(--mono); font-size:11px; }
+    #reading-feed::-webkit-scrollbar { width:4px; }
+    #reading-feed::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+    .batch-sep { display:flex; align-items:center; gap:8px; padding:3px 16px; background:rgba(123,92,245,.06); border-bottom:1px solid var(--border); font-family:var(--mono); font-size:9px; color:var(--accent2); letter-spacing:.06em; }
+    .bsl { flex:1; height:1px; background:var(--border); }
+    .reading-row { display:grid; grid-template-columns:72px 90px 110px 76px 52px 1fr; align-items:center; gap:8px; padding:4px 16px; border-bottom:1px solid var(--border); animation:row-in .15s ease; transition:background .15s; }
+    .reading-row:hover { background:var(--surface2); }
+    .reading-row.alert-row { background:rgba(255,107,53,.06); border-left:2px solid var(--warn); }
+    @keyframes row-in { from{opacity:0;transform:translateY(-3px)} to{opacity:1;transform:none} }
+    .col-ts  { color:var(--dim); font-size:10px; }
+    .col-dev { color:var(--accent); font-weight:600; }
+    .col-met { color:var(--accent2); }
+    .col-val { color:var(--text); font-weight:600; }
+    .col-u   { color:var(--dim); }
+    .col-f   { display:flex; align-items:center; gap:5px; }
+    .badge   { display:inline-block; font-size:9px; border-radius:3px; padding:1px 5px; }
+    .badge-alert { background:rgba(255,107,53,.2); color:var(--warn); }
+    .badge-ok    { background:rgba(0,230,118,.12); color:var(--ok); }
+    .qbar { height:3px; border-radius:2px; background:var(--ok); }
+    .qbar.deg { background:var(--warn); }
+    .sidebar-right { background:var(--surface); border-left:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
+    .chart-section { padding:14px 16px; border-bottom:1px solid var(--border); }
+    .ctitle { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); margin-bottom:8px; }
+    canvas.spark { display:block; width:100%; height:60px; }
+    .alert-log { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
+    .alt-title { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); padding:12px 16px 8px; background:var(--surface); border-bottom:1px solid var(--border); position:sticky; top:0; }
+    .alert-entry { padding:8px 16px; border-bottom:1px solid var(--border); animation:row-in .2s ease; }
+    .ae-dev    { font-family:var(--mono); font-size:10px; color:var(--warn); font-weight:600; }
+    .ae-detail { font-family:var(--mono); font-size:10px; color:var(--dim); }
+    .ae-ts     { font-size:9px; color:var(--dim); margin-top:1px; }
+    .alert-log::-webkit-scrollbar { width:4px; }
+    .alert-log::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <span class="logo">BoundedChannel · IoT Telemetry</span>
+    <div class="hsep"></div>
+    <div class="conn-badge">
+      <div class="conn-dot" id="conn-dot"></div>
+      <span id="conn-label">CONNECTING...</span>
+    </div>
+  </header>
+  <aside class="sidebar-left">
+    <div class="slabel">Devices</div>
+    <div class="device-list" id="device-list"></div>
+  </aside>
+  <main class="main-panel">
+    <div class="stats-strip">
+      <div class="stat-card">
+        <div class="slbl">Throughput</div>
+        <div class="sval" id="s-throughput">0</div>
+        <div class="sunit">readings / sec</div>
+      </div>
+      <div class="stat-card c-ok">
+        <div class="slbl">Total Consumed</div>
+        <div class="sval" id="s-consumed">0</div>
+        <div class="sunit">readings</div>
+      </div>
+      <div class="stat-card c-warn">
+        <div class="slbl">Buffer Load</div>
+        <div class="sval" id="s-buffered">0</div>
+        <div class="sunit">/ 1 000 items</div>
+        <div class="bbar-wrap"><div class="bbar" id="bbar"></div></div>
+      </div>
+      <div class="stat-card c-v2">
+        <div class="slbl">Avg Batch Size</div>
+        <div class="sval" id="s-batch">-</div>
+        <div class="sunit">readings / flush</div>
+      </div>
+      <div class="stat-card c-gd">
+        <div class="slbl">Dropped</div>
+        <div class="sval" id="s-dropped">0</div>
+        <div class="sunit">overflow discards</div>
+      </div>
+    </div>
+    <div class="feed-wrap">
+      <div class="feed-header">
+        <span class="ftitle" id="feed-label">Live Feed - All Sensors</span>
+        <div class="batch-flash">BATCH <span class="batch-pill" id="batch-pill">-</span></div>
+        <button class="pause-btn" id="pause-btn" onclick="togglePause()">Pause</button>
+      </div>
+      <div id="reading-feed"></div>
+    </div>
+  </main>
+  <aside class="sidebar-right">
+    <div class="chart-section">
+      <div class="ctitle">Throughput (60 s)</div>
+      <canvas class="spark" id="spark-tp"></canvas>
+      <div class="ctitle" style="margin-top:12px">Avg Batch Size (60 s)</div>
+      <canvas class="spark" id="spark-bs"></canvas>
+    </div>
+    <div class="alert-log">
+      <div class="alt-title">Alert Log</div>
+      <div id="alert-body"></div>
+    </div>
+  </aside>
+</div>
+<script>
+const MAX_ROWS=100,MAX_ALERTS=50,SPARK_PTS=60;
+let paused=false,activeDevice=null;
+const tpHist=new Array(SPARK_PTS).fill(0),bsHist=new Array(SPARK_PTS).fill(0);
+let bsSum=0,bsCnt=0;
+const deviceMap={};
+
+const conn=new signalR.HubConnectionBuilder()
+  .withUrl("/hubs/sensor")
+  .withAutomaticReconnect([0,1000,3000,5000])
+  .configureLogging(signalR.LogLevel.Warning)
+  .build();
+
+conn.onreconnecting(()=>setConn("connecting"));
+conn.onreconnected(()=>setConn("connected"));
+conn.onclose(()=>setConn("error"));
+
+function setConn(s){
+  document.getElementById("conn-dot").className="conn-dot"+(s==="connected"?" connected":s==="error"?" error":"");
+  document.getElementById("conn-label").textContent={connected:"CONNECTED",connecting:"RECONNECTING...",error:"DISCONNECTED"}[s]||s.toUpperCase();
+}
+
+conn.on("ReceiveSensorReadingBatch",function(batch){
+  bsSum+=batch.length;bsCnt++;
+  var pill=document.getElementById("batch-pill");
+  pill.textContent=batch.length;
+  pill.classList.add("flash");
+  setTimeout(function(){pill.classList.remove("flash");},200);
+  for(var i=0;i<batch.length;i++){ensureDevice(batch[i].deviceId);updateDevice(batch[i]);}
+  if(!paused)appendBatch(batch);
+});
+
+conn.on("ReceiveAlertBatch",function(alerts){
+  for(var i=0;i<alerts.length;i++)appendAlert(alerts[i]);
+});
+
+conn.on("ReceiveChannelStats",function(s){
+  document.getElementById("s-throughput").textContent=s.throughputPerSecond.toLocaleString();
+  document.getElementById("s-consumed").textContent=s.totalConsumed.toLocaleString();
+  document.getElementById("s-buffered").textContent=s.bufferedCount;
+  document.getElementById("s-dropped").textContent=s.droppedCount.toLocaleString();
+  var pct=(s.bufferedCount/s.capacity)*100;
+  var bar=document.getElementById("bbar");
+  bar.style.width=pct+"%";
+  bar.classList.toggle("high",pct>70);
+  document.getElementById("s-batch").textContent=bsCnt>0?(bsSum/bsCnt).toFixed(1):"-";
+  bsHist.push(bsCnt>0?bsSum/bsCnt:0);if(bsHist.length>SPARK_PTS)bsHist.shift();
+  bsSum=bsCnt=0;
+  tpHist.push(s.throughputPerSecond);if(tpHist.length>SPARK_PTS)tpHist.shift();
+  drawSpark("spark-tp",tpHist,"#00e5ff");
+  drawSpark("spark-bs",bsHist,"#7b5cf5");
+});
+
+conn.start().then(function(){setConn("connected");}).catch(function(){setConn("error");});
+
+function ensureDevice(id){
+  if(deviceMap[id])return;
+  var row=document.createElement("div");
+  row.className="device-row";row.dataset.deviceId=id;
+  row.innerHTML='<div class="dind" id="ind-'+id+'"></div><span class="did">'+id+'</span><span class="dcnt" id="cnt-'+id+'">0</span>';
+  row.addEventListener("click",function(){selectDevice(id);});
+  document.getElementById("device-list").appendChild(row);
+  deviceMap[id]={count:0};
+}
+
+function updateDevice(r){
+  var d=deviceMap[r.deviceId];if(!d)return;d.count++;
+  document.getElementById("cnt-"+r.deviceId).textContent=d.count;
+  var ind=document.getElementById("ind-"+r.deviceId);
+  if(r.isAlert){ind.className="dind alert";}
+  else{ind.className="dind active";setTimeout(function(){if(ind)ind.className="dind";},350);}
+}
+
+function selectDevice(id){
+  if(activeDevice===id){
+    conn.invoke("UnsubscribeFromDevice",id).catch(console.error);
+    activeDevice=null;
+    document.querySelectorAll(".device-row").forEach(function(r){r.classList.remove("active");});
+    document.getElementById("feed-label").textContent="Live Feed - All Sensors";
+    return;
+  }
+  if(activeDevice)conn.invoke("UnsubscribeFromDevice",activeDevice).catch(console.error);
+  conn.invoke("SubscribeToDevice",id).catch(console.error);
+  activeDevice=id;
+  document.querySelectorAll(".device-row").forEach(function(r){r.classList.toggle("active",r.dataset.deviceId===id);});
+  document.getElementById("feed-label").textContent="Live Feed - "+id;
+  document.getElementById("reading-feed").innerHTML="";
+}
+
+function appendBatch(batch){
+  var feed=document.getElementById("reading-feed");
+  var frag=document.createDocumentFragment();
+  var sep=document.createElement("div");
+  sep.className="batch-sep";
+  sep.innerHTML='<span class="bsl"></span>BATCH - '+batch.length+' readings<span class="bsl"></span>';
+  frag.appendChild(sep);
+  for(var i=0;i<batch.length;i++){
+    var r=batch[i];
+    var ts=new Date(r.timestamp).toLocaleTimeString("en-GB",{hour12:false});
+    var qPct=Math.round(r.quality*100);
+    var row=document.createElement("div");
+    row.className="reading-row"+(r.isAlert?" alert-row":"");
+    row.innerHTML='<span class="col-ts">'+ts+'</span><span class="col-dev">'+r.deviceId+'</span><span class="col-met">'+r.metricType+'</span><span class="col-val">'+r.value.toFixed(2)+'</span><span class="col-u">'+r.unit+'</span><span class="col-f"><span class="badge '+(r.isAlert?"badge-alert":"badge-ok")+'">'+(r.isAlert?"ALERT":"OK")+'</span><div style="flex:1;max-width:44px"><div class="qbar '+(qPct<50?"deg":"")+'" style="width:'+qPct+'%"></div></div></span>';
+    frag.appendChild(row);
+  }
+  feed.prepend(frag);
+  while(feed.children.length>MAX_ROWS)feed.removeChild(feed.lastChild);
+}
+
+function appendAlert(r){
+  var body=document.getElementById("alert-body");
+  var ts=new Date(r.timestamp).toLocaleTimeString("en-GB",{hour12:false});
+  var el=document.createElement("div");el.className="alert-entry";
+  el.innerHTML='<div class="ae-dev">'+r.deviceId+'</div><div class="ae-detail">'+r.metricType+' - '+r.value.toFixed(2)+' '+r.unit+'</div><div class="ae-ts">'+ts+'</div>';
+  body.prepend(el);
+  while(body.children.length>MAX_ALERTS)body.removeChild(body.lastChild);
+}
+
+function drawSpark(id,data,color){
+  var c=document.getElementById(id);
+  var dpr=window.devicePixelRatio||1;
+  var w=c.offsetWidth,h=c.offsetHeight;
+  c.width=w*dpr;c.height=h*dpr;
+  var ctx=c.getContext("2d");ctx.scale(dpr,dpr);
+  var max=Math.max.apply(null,data.concat([1]));
+  var step=w/(data.length-1);
+  ctx.strokeStyle="rgba(31,37,64,.8)";ctx.lineWidth=1;
+  for(var i=0;i<=3;i++){var y=(h/3)*i;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+  var rgb=color==="#00e5ff"?"0,229,255":"123,92,245";
+  var g=ctx.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,"rgba("+rgb+",.2)");g.addColorStop(1,"rgba("+rgb+",0)");
+  ctx.beginPath();
+  data.forEach(function(v,i){var x=i*step,y=h-(v/max)*(h-4)-2;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.lineJoin="round";
+  data.forEach(function(v,i){var x=i*step,y=h-(v/max)*(h-4)-2;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.stroke();
+}
+
+function togglePause(){
+  paused=!paused;
+  var btn=document.getElementById("pause-btn");
+  btn.textContent=paused?"Resume":"Pause";
+  btn.classList.toggle("paused",paused);
+}
+</script>
+</body>
+</html>
