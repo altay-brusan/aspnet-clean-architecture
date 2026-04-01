@@ -1,0 +1,120 @@
+name: evently
+services:
+  evently.api:
+    build:
+      context: C:\Trash\aspnet-clean-architecture\09.2 - Unit Testing\evently
+      dockerfile: src/API/Evently.Api/Dockerfile
+    container_name: Evently.Api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: eventlyapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "5000"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "5001"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\altay\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\altay\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  evently.database:
+    container_name: Evently.Database
+    environment:
+      POSTGRES_DB: evently
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    image: postgres:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Trash\aspnet-clean-architecture\09.2 - Unit Testing\evently\.containers\db
+        target: /var/lib/postgresql/data
+        bind:
+          create_host_path: true
+  evently.identity:
+    command:
+      - start-dev
+      - --import-realm
+    container_name: Evently.Identity
+    environment:
+      KC_HEALTH_ENABLED: "true"
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    image: quay.io/keycloak/keycloak:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "18080"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Trash\aspnet-clean-architecture\09.2 - Unit Testing\evently\.containers\identity
+        target: /opt/keycloak/data
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Trash\aspnet-clean-architecture\09.2 - Unit Testing\evently\.files
+        target: /opt/keycloak/data/import
+        bind:
+          create_host_path: true
+  evently.redis:
+    container_name: Evently.Redis
+    image: redis:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
+    restart: always
+  evently.seq:
+    container_name: Evently.Seq
+    environment:
+      ACCEPT_EULA: "Y"
+    image: datalust/seq:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5341
+        published: "5341"
+        protocol: tcp
+      - mode: ingress
+        target: 80
+        published: "8081"
+        protocol: tcp
+networks:
+  default:
+    name: evently_default

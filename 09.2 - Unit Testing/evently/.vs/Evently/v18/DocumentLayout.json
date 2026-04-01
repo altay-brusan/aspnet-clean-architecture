@@ -1,0 +1,402 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\attendance\\evently.modules.attendance.infrastructure\\inbox\\processinboxjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|solutionrelative:src\\modules\\attendance\\evently.modules.attendance.infrastructure\\inbox\\processinboxjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\inbox\\integrationeventhandlersfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\inbox\\integrationeventhandlersfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\inbox\\inboxmessageconsumerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\inbox\\inboxmessageconsumerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\inbox\\inboxmessageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\inbox\\inboxmessageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\inbox\\inboxmessageconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\inbox\\inboxmessageconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\inbox\\inboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\inbox\\inboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\infrastructureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\infrastructureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\attendance\\evently.modules.attendance.infrastructure\\database\\attendancedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|solutionrelative:src\\modules\\attendance\\evently.modules.attendance.infrastructure\\database\\attendancedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2E619AB-E6D0-4C87-9C14-F341C4D69F4B}|src\\Modules\\Users\\Evently.Modules.Users.Infrastructure\\Evently.Modules.Users.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\users\\evently.modules.users.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2E619AB-E6D0-4C87-9C14-F341C4D69F4B}|src\\Modules\\Users\\Evently.Modules.Users.Infrastructure\\Evently.Modules.Users.Infrastructure.csproj|solutionrelative:src\\modules\\users\\evently.modules.users.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24066375-1D90-49D1-BCC9-7E7284C27957}|src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Evently.Modules.Ticketing.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\ticketing\\evently.modules.ticketing.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24066375-1D90-49D1-BCC9-7E7284C27957}|src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Evently.Modules.Ticketing.Infrastructure.csproj|solutionrelative:src\\modules\\ticketing\\evently.modules.ticketing.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24066375-1D90-49D1-BCC9-7E7284C27957}|src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Evently.Modules.Ticketing.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\ticketing\\evently.modules.ticketing.infrastructure\\ticketingmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24066375-1D90-49D1-BCC9-7E7284C27957}|src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Evently.Modules.Ticketing.Infrastructure.csproj|solutionrelative:src\\modules\\ticketing\\evently.modules.ticketing.infrastructure\\ticketingmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88D8FF01-4562-457A-844D-889BA99067E0}|src\\Modules\\Events\\Evently.Modules.Events.Infrastructure\\Evently.Modules.Events.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\events\\evently.modules.events.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88D8FF01-4562-457A-844D-889BA99067E0}|src\\Modules\\Events\\Evently.Modules.Events.Infrastructure\\Evently.Modules.Events.Infrastructure.csproj|solutionrelative:src\\modules\\events\\evently.modules.events.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\attendance\\evently.modules.attendance.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|solutionrelative:src\\modules\\attendance\\evently.modules.attendance.infrastructure\\inbox\\integrationeventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\attendance\\evently.modules.attendance.infrastructure\\attendancemodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E462758-B135-4272-A8BB-CB70C99183FE}|src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Evently.Modules.Attendance.Infrastructure.csproj|solutionrelative:src\\modules\\attendance\\evently.modules.attendance.infrastructure\\attendancemodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD0A3BBD-D005-4B00-B289-C860B9782E0A}|src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Application\\Evently.Modules.Ticketing.Application.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\modules\\ticketing\\evently.modules.ticketing.application\\tickettypes\\tickettypesoldoutdomaineventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD0A3BBD-D005-4B00-B289-C860B9782E0A}|src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Application\\Evently.Modules.Ticketing.Application.csproj|solutionrelative:src\\modules\\ticketing\\evently.modules.ticketing.application\\tickettypes\\tickettypesoldoutdomaineventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\eventbus\\eventbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\eventbus\\eventbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\data\\genericarrayhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\data\\genericarrayhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|c:\\trash\\aspnet-clean-architecture\\09.2 - unit testing\\evently\\src\\common\\evently.common.infrastructure\\data\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84603ADE-90BA-4F97-994A-1934E3A9738D}|src\\Common\\Evently.Common.Infrastructure\\Evently.Common.Infrastructure.csproj|solutionrelative:src\\common\\evently.common.infrastructure\\data\\dbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProcessInboxJob.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\ProcessInboxJob.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\ProcessInboxJob.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\ProcessInboxJob.cs",
+              "RelativeToolTip": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\ProcessInboxJob.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAlwBMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:53:06.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InfrastructureConfiguration.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\InfrastructureConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\InfrastructureConfiguration.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\InfrastructureConfiguration.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\InfrastructureConfiguration.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAIAywDUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:08:14.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InboxMessageConfiguration.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConfiguration.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConfiguration.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConfiguration.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvwcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:22:11.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InboxMessageConsumerConfiguration.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumerConfiguration.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumerConfiguration.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumerConfiguration.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumerConfiguration.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvwkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:22:48.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IntegrationEventHandlersFactory.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\IntegrationEventHandlersFactory.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\IntegrationEventHandlersFactory.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\IntegrationEventHandlersFactory.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\IntegrationEventHandlersFactory.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvwcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:23:13.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InboxMessage.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessage.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessage.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessage.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessage.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:19:58.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InboxMessageConsumer.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumer.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumer.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Inbox\\InboxMessageConsumer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:22:37.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AttendanceDbContext.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Database\\AttendanceDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Database\\AttendanceDbContext.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Database\\AttendanceDbContext.cs",
+              "RelativeToolTip": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Database\\AttendanceDbContext.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwB4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:00:54.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IntegrationEventConsumer.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Users\\Evently.Modules.Users.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Users\\Evently.Modules.Users.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Users\\Evently.Modules.Users.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeToolTip": "src\\Modules\\Users\\Evently.Modules.Users.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA7wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:58:09.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IntegrationEventConsumer.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeToolTip": "src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA0wBkAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:52:35.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TicketingModule.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\TicketingModule.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\TicketingModule.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\TicketingModule.cs",
+              "RelativeToolTip": "src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Infrastructure\\TicketingModule.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAA0wDQAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:52:40.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IntegrationEventConsumer.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Events\\Evently.Modules.Events.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Events\\Evently.Modules.Events.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Events\\Evently.Modules.Events.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeToolTip": "src\\Modules\\Events\\Evently.Modules.Events.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:52:28.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IntegrationEventConsumer.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "RelativeToolTip": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\Inbox\\IntegrationEventConsumer.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA0wAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:35:35.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AttendanceModule.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\AttendanceModule.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\AttendanceModule.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\AttendanceModule.cs",
+              "RelativeToolTip": "src\\Modules\\Attendance\\Evently.Modules.Attendance.Infrastructure\\AttendanceModule.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAC8AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:40:04.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TicketTypeSoldOutDomainEventHandler.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Application\\TicketTypes\\TicketTypeSoldOutDomainEventHandler.cs",
+              "RelativeDocumentMoniker": "src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Application\\TicketTypes\\TicketTypeSoldOutDomainEventHandler.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Application\\TicketTypes\\TicketTypeSoldOutDomainEventHandler.cs",
+              "RelativeToolTip": "src\\Modules\\Ticketing\\Evently.Modules.Ticketing.Application\\TicketTypes\\TicketTypeSoldOutDomainEventHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:24:29.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EventBus.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\EventBus\\EventBus.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\EventBus\\EventBus.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\EventBus\\EventBus.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\EventBus\\EventBus.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:17:14.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GenericArrayHandler.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Data\\GenericArrayHandler.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Data\\GenericArrayHandler.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Data\\GenericArrayHandler.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Data\\GenericArrayHandler.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:07:53.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DbConnectionFactory.cs",
+              "DocumentMoniker": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Data\\DbConnectionFactory.cs",
+              "RelativeDocumentMoniker": "src\\Common\\Evently.Common.Infrastructure\\Data\\DbConnectionFactory.cs",
+              "ToolTip": "C:\\Trash\\aspnet-clean-architecture\\09.2 - Unit Testing\\evently\\src\\Common\\Evently.Common.Infrastructure\\Data\\DbConnectionFactory.cs",
+              "RelativeToolTip": "src\\Common\\Evently.Common.Infrastructure\\Data\\DbConnectionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T16:02:47.559Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 2034,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{28836128-fc2c-11d2-a433-00c04f72d18a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{68487888-204a-11d3-87eb-00c04f7971a5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ca8cc5c7-0231-406a-95cd-aa5ed6ac0190}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 395,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
